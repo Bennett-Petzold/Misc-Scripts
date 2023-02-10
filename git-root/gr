@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Go to the root of a git directory
+until find -maxdepth 1 -mindepth 1 -type d -print0 |
+		grep -zq '^\./\.git$' &>/dev/null; do
+	cd ..
+done;
