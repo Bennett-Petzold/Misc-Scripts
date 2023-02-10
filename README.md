@@ -1,7 +1,9 @@
 # Misc-Scripts
-Miscellaneous scripts and tools I use on my system (usually living in ~/bin).
+Miscellaneous scripts, tools, and aliases I use on my system (usually living in ~/bin).
 
-Each script is provided in its own file with a README for usage and dependencies.
+Aliases are in [aliases.md](aliases.md).
+
+Each script/tool is provided in its own file with a README for usage and dependencies.
 All scripts are provided without any guarantee of functionality or safety -- read them before using, and run them on your system at your own risk.
 They are only built to run on UNIX environments.
 
