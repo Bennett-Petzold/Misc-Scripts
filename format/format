@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+WRITE='cp'
+
+# Program needs at least one image file and one disk file
+if ! [[ $1 ]] || ! [[ $2 ]]; then
+	printf 'Usage: %s IMAGE DISK...\n' "$(basename $0)"
+	exit
+fi
+
+img="$1"
+disks=( "$@" )
+disks=( "${disks[@]/$1}" )
+
+for disk in ${disks[@]}; do
+	printf 'Write \e[1;31m%s\e[m to \e[1;36m%s\e[m\n' "$img" "$disk"
+done
+read -p '(y/N): ' confirm
+
+if ! [[ "$confirm" == y ]] && ! [[ "$confirm" == 'Y' ]]; then
+	printf '%s\n' 'Cancelling.'
+	exit
+fi
+
+for disk in ${disks[@]}; do
+	# Need to make sure device is synced
+	("$WRITE" "$img" "$disk" && sync "$disk") &
+done
+progress -wm -c "$WRITE"
+wait # Give time for sync to complete after cp
+printf '%s\n' 'Write(s) complete.'
