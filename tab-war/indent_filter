@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+TAB_WIDTH=4
+
+expand_cmd="expand -t${TAB_WIDTH}"
+unexpand_cmd="unexpand -t${TAB_WIDTH} --first-only"
+
+shopt -s extglob
+case "$1" in
+	space?(s) )
+		smudge="$expand_cmd"
+		clean="$unexpand_cmd"
+		;;
+	tab?(s) )
+		smudge="$unexpand_cmd"
+		clean="$expand_cmd"
+		;;
+	* )
+		echo 'Choose local "spaces" or "tabs"'
+		echo 'i.e. indent_filter tabs'
+		exit
+		;;
+esac
+
+if ! [ -d '.git/info' ]; then
+	echo 'Run in root directory of git repository'
+	exit
+fi
+
+git config filter.indent.smudge "$smudge"
+git config filter.indent.clean "$clean"
+echo '* text filter=indent' >> ".git/info/attributes"
