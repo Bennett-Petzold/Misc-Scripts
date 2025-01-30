@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/base/ncsu/2021-summer/Co-Op-Info-Session'
+let g:netrw_dirhist_8='/home/base/ncsu/2021-summer/ECE220/labs/2'
+let g:netrw_dirhist_7='/home/base/ncsu/2021-summer/ECE220/labs'
+let g:netrw_dirhist_6='/home/base/ncsu/2021-summer/ECE220/labs/3'
+let g:netrw_dirhist_5='/home/base/ncsu/2021-summer/ECE220/labs'
+let g:netrw_dirhist_4='/home/base/.neomutt'
+let g:netrw_dirhist_3='/home/base/personal/video/anime/info-files'
+let g:netrw_dirhist_2='/home/base/ncsu/2021-spring/ECE109/penn-sim'
+let g:netrw_dirhist_1='/home/base/ncsu/2021-spring/ST371/work/3'
+let g:netrw_dirhist_0='/home/base/ncsu/2021-spring/ENG214/notes'
